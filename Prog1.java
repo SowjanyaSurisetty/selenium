@@ -71,19 +71,17 @@ public class Prog1 {
 		WebElement e=driver.findElement(By.name("country"));
 		
 		//instantiating Select class with webelement object
-				Select s=new Select(e);
-				//Selecting value "CANADA" by the selectBYVisibleText method 
-				s.selectByVisibleText("CANADA");
+		Select s=new Select(e);
+		//Selecting value "CANADA" by the selectBYVisibleText method 
+		s.selectByVisibleText("CANADA");
 				
-				//to get the text and to  print  in console.
-				System.out.println(e.getText());
+		//to get the text and to  print  in console.
+		System.out.println(e.getText());
 				
-				//To get the  tag name and to print in the console.
-				System.out.println(e.getTagName());
+		//To get the  tag name and to print in the console.
+		System.out.println(e.getTagName());
 				
-				
-				
-				Thread.sleep(4000);
+		Thread.sleep(4000);
 				
 		driver.findElement(By.name("email")).sendKeys("sowjanya"); 
 		
@@ -94,14 +92,19 @@ public class Prog1 {
 		driver.findElement(By.name("register")).click(); 
 		
 		Thread.sleep(2000);
-		String Expected="Dear sowjanya surisetty,";
-		//WebElement e1=driver.findElement(By.xpath("//*[text()=' Dear sowjanya surisetty,']"));
-		WebElement e1=driver.findElement(By.xpath("//*[@src='/images/masts/mast_register.gif']/parent::td/parent::tr/following-sibling::tr[2]/td/p/font[1]/b"));
-		//WebElement e1=driver.getTitle();
 		
+		String Expected="Dear sowjanya surisetty,";
+		
+		//Locating the text
+		WebElement e1=driver.findElement(By.xpath("//*[@src='/images/masts/mast_register.gif']/parent::td/parent::tr/following-sibling::tr[2]/td/p/font[1]/b"));
+		
+		//getting the text and printing it in console.
 		System.out.println(e1.getText());
+		
+		//getting the text and assigning it to Actual string variable.
 		String Actual=e1.getText();
 		
+		//comparing to validate whether actual text is equal to expected.
 		if(Actual.equals(Expected))
 		{
 			System.out.println("Registration is Passed");
