@@ -1,0 +1,42 @@
+import java.util.List;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Practice9 {
+
+	public static void main(String[] args) throws InterruptedException {
+    
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
+        
+		WebDriver driver=new ChromeDriver();
+        
+		driver.get("http://amazon.ca/");
+        
+		Thread.sleep(2000);
+        
+		driver.manage().window().maximize();
+        
+		Thread.sleep(1000);
+        
+		List<WebElement> li = driver.findElements(By.tagName("a"));
+        
+		 System.out.println(li.size());
+         
+		for(int i=0;i<li.size();i++)
+		{
+        
+		String lt=li.get(i).getText();
+        
+		System.out.println(lt);
+        
+		}
+        
+		}
+
+}
