@@ -1,0 +1,30 @@
+package sharan;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Practice6 {
+
+	public static void main(String[] args) throws InterruptedException {
+  
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
+		ChromeDriver driver=new ChromeDriver();
+    
+		driver.get("http://newtours.demoaut.com/");
+    
+		Thread.sleep(2000);
+    
+		driver.manage().window().maximize();
+    
+		driver.findElement(By.xpath("//a[starts-with(text(),'REGISTER')]")).click();
+    
+		driver.findElement(By.xpath("(//input[@size='20'])[last()-1]")).sendKeys("deep1234");
+    
+		driver.findElement(By.xpath("(//input[@size='20'])[last()]")).sendKeys("deep1234");
+    
+    driver.close();
+
+	}
+
+}
