@@ -1,0 +1,79 @@
+package sharan;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Practice7 {
+
+	public static void main(String[] args) throws InterruptedException {
+  
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
+    
+		ChromeDriver driver=new ChromeDriver();
+    
+		driver.get("http://newtours.demoaut.com/");
+    
+		Thread.sleep(2000);
+    
+		driver.manage().window().maximize();
+    
+		driver.findElement(By.xpath("//a[text()='REGISTER']")).click();
+    
+		driver.findElement(By.xpath("//input[@name='lastName']/preceding::input[1]")).sendKeys("bhavdeep");
+    
+		driver.findElement(By.xpath("//input[@name='firstName']/following::input[1]")).sendKeys("saragadam");
+		
+		driver.findElement(By.xpath("//input[@name='lastName']/following::input[@name='phone']")).sendKeys("9345563467");
+    
+		driver.findElement(By.xpath("//input[@name='address1']/preceding::input[@name='userName']")).sendKeys("dheeraj.saragadam@gmail.com");
+    
+		driver.findElement(By.xpath("//b[text()='Address:']/following::input[1]")).sendKeys("45-23-45");
+    
+		driver.findElement(By.xpath("//b[text()='Address:']/following::input[2]")).sendKeys("kr puram");
+    
+		driver.findElement(By.xpath("//b[text()='State/Province:']/preceding::input[1]")).sendKeys("marathalli");
+    
+		driver.findElement(By.xpath("//b[text()='State/Province:']/following::input[1]")).sendKeys("bangalore");
+    
+		driver.findElement(By.xpath("//b[text()='Country:']/preceding::input[1]")).sendKeys("530034");
+    
+		driver.findElement(By.xpath("//select[@name='country']//child::option[108]")).click();
+    
+		driver.findElement(By.xpath("//input[@name='password']/preceding::input[1]")).sendKeys("dheeraj.saragadam@gmail.com");
+    
+		driver.findElement(By.xpath("//b[text()='Password:']/following::input[@name='password']")).sendKeys("deep1234");
+    
+		driver.findElement(By.xpath("//input[@type='image']/preceding::input[1]")).sendKeys("deep1234");
+    
+		driver.findElement(By.xpath("//input[@name='confirmPassword']/following::input")).click();
+    
+		driver.findElement(By.xpath("//a[text()='Home']")).click();
+    
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[text()='Home']/following::a")).click();
+    
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[text()='Hotels']/following::a[2]")).click();
+    
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[text()='Car Rentals']/following::a[3]")).click();
+    
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[text()='Cruises']/following::a[4]")).click();
+    
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[text()='Destinations']/following::a[5]")).click();
+    
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[text()='Vactaions']/following::a[6]")).click();
+    
+		Thread.sleep(1000);
+		driver.findElement(By.xpath("//a[text()='Home']/following::a")).click();
+		
+    driver.close();
+    
+	}
+
+}
