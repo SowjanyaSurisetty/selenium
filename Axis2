@@ -1,0 +1,39 @@
+package sharan;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.WebDriver;
+
+//import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Practice8 {
+
+	public static void main(String[] args) throws InterruptedException {
+  
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
+    
+		WebDriver driver=new ChromeDriver();
+    
+		driver.get("http://newtours.demoaut.com/");
+    
+		Thread.sleep(2000);
+		driver.manage().window().maximize();
+    
+		//WebElement e=new WebElement();
+		//		e=driver.findElement(By.xpath("//input[@name='userName']/parent::td/preceding-sibling::td/child::font"));
+		//driver.findElement(By.xpath("//a[text()='REGISTER']")).click();
+		//driver.findElement(By.xpath("//input[@name='password']/parent::td/preceding-sibling::td/ancestor::tbody[1]/child::tr[2]/child::td[2]/child::input[@name='userName']")).sendKeys("bhavdeep");
+		//input[@name='action']/following-sibling::table/child::tbody/tr[4]/td/table/tbody/tr[2]/td[2]/input[@name='userName']
+    
+		driver.findElement(By.xpath("//input[@name='action']/following-sibling::table/child::tbody/tr[4]/td/table/tbody/tr[2]/td[2]/input[@name='userName']")).sendKeys("bhavdeep");
+    
+		driver.findElement(By.xpath("//input[@name='action']/following-sibling::table/child::tbody/tr[4]/td/table/tbody/tr[3]/td[2]/input[@name='password']")).sendKeys("deep1234");
+    
+		driver.findElement(By.xpath("//input[@name='password']/following::tr[1]/td[2]/div/input[@name='login']")).click();
+    
+	}
+
+}
