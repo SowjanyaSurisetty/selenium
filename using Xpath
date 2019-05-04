@@ -1,0 +1,72 @@
+package sharan;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class Practice5 {
+
+	public static void main(String[] args) throws InterruptedException {
+  
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
+    
+		ChromeDriver driver=new ChromeDriver();
+    
+		driver.get("http://newtours.demoaut.com/");
+    
+		Thread.sleep(2000);
+    
+		driver.manage().window().maximize();
+    
+		//driver.findElement(By.linkText("REGISTER")).click();
+    
+		//driver.findElement(By.xpath("(//a[@href='mercuryregister.php'])[1]")).click();
+    
+		//driver.findElement(By.xpath("//a[text()='REGISTER']")).click();
+    
+		//driver.findElement(By.xpath("//a[contains(text(),'REGISTER')]")).click();
+    
+		driver.findElement(By.xpath("(//a[contains(@href,'mercuryregister.php')])[1]")).click();
+    
+		//driver.findElement(By.xpath("//a[starts-with(text(),'REGISTER')]")).click();
+    
+		//driver.findElement(By.xpath("(//a[starts-with (@href,'mercuryregister.php')])[1]")).click();
+		Thread.sleep(2000);
+    
+		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("bhavdeep");
+    
+		driver.findElement(By.xpath("//*[@name='lastName']")).sendKeys("saragadam");
+    
+		driver.findElement(By.xpath("//*[@name='phone'][@size='15']")).sendKeys("9837452945");
+    
+		driver.findElement(By.xpath("//*[@name='userName'and @id='userName']")).sendKeys("bhavdeep@gmail.com");
+    
+		//driver.findElement(By.xpath("(//*[@name='userName'])|(//*[@id='userName'])")).sendKeys("bhavdeep@gmail.com");
+    
+		driver.findElement(By.xpath("//input[@name='address1']")).sendKeys("flat no 20236");
+    
+		driver.findElement(By.xpath("//input[@name='address2']")).sendKeys("sri sai residency");
+    
+		driver.findElement(By.xpath("//input[@name='city']")).sendKeys("miyapur");
+    
+		driver.findElement(By.xpath("//input[@name='state']")).sendKeys("hyderabad");
+    
+		driver.findElement(By.xpath("//input[@name='postalCode']")).sendKeys("530024");
+    
+		driver.findElement(By.xpath("//*[@value='92']")).click();
+    
+		driver.findElement(By.xpath("//input[@name='email']")).sendKeys("bhavdeep.saragadam@gmail.com");
+    
+		driver.findElement(By.xpath("//input[@name='password']")).sendKeys("deep1234");
+    
+		driver.findElement(By.xpath("//input[@name='confirmPassword']")).sendKeys("deep1234");
+    
+		driver.findElement(By.xpath("//input[@name='register']")).click();
+    
+		Thread.sleep(1000);
+		
+		driver.close();
+		
+	}
+
+}
