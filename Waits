@@ -1,0 +1,64 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+
+import org.openqa.selenium.Keys;
+
+import org.openqa.selenium.WebDriver;
+
+import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import org.openqa.selenium.interactions.Actions;
+
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import org.openqa.selenium.support.ui.FluentWait;
+
+import org.openqa.selenium.support.ui.Wait;
+
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Practice14 {
+
+	public static void main(String[] args) throws InterruptedException {
+  
+		// printing error message in console
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
+    
+		WebDriver driver=new ChromeDriver();
+		
+		//opens bigbazaar webpage
+		driver.get("http://bigbazaar.com/");
+    
+		//using implicit wait
+		driver.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+    
+		//using explicit wait with webdriver method
+		WebDriverWait wait=new WebDriverWait(driver, 20);
+    
+	
+		WebElement e=wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//i[@class='dp-icon']")));
+		e.click();
+    
+		//using explicit wait with fluent wait
+		Wait<WebDriver> wait1 = new FluentWait<WebDriver>(driver);
+		WebElement e2=wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Login / Sign Up']")));
+		e2.click();	
+		
+		WebElement e4=driver.findElement(By.xpath("//input[@name='usignupcontact']"));
+		e4.sendKeys("12345",Keys.TAB,Keys.ENTER);
+		
+		
+		WebElement e3=wait1.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[text()='Submit']")));
+		e3.click();
+		
+		WebElement e1=driver.findElement(By.xpath("//li[@class='error']"));
+		System.out.println(e1.getText());
+		
+    driver.close();
+		
+	}
+
+}
