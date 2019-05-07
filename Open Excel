@@ -1,0 +1,17 @@
+package SikuliPrac;
+
+import org.sikuli.script.FindFailed;
+import org.sikuli.script.Screen;
+
+public class openExcel {
+
+	public static void main(String[] args) throws FindFailed, InterruptedException {
+		// TODO Auto-generated method stub
+		Screen s = new Screen();
+		Thread.sleep(3000);
+		s.click("C:\\Selenium\\Sikuli images\\type.PNG");
+		s.type("  Excel ");
+		s.click("C:\\Selenium\\Sikuli images\\Excel.PNG");
+		Thread.sleep(3000);
+	//	s.click("C:\\Selenium\\Sikuli images\\first1excel.PNG");
+		s.click("C:\\Selenium\\Sikuli images\\openexcel.PNG");
