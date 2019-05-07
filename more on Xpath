@@ -1,0 +1,63 @@
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.Select;
+
+public class Prog2 {
+
+	public static void main(String[] args) {
+		WebDriver driver;
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\chromedriver_win32 (1)\\chromedriver.exe");
+		
+		/*ChromeOptions ChromeOptions = new ChromeOptions();
+		ChromeOptions.addArguments("--headless", "window-size=1024,768", "--no-sandbox");
+		driver = new ChromeDriver(ChromeOptions);
+		*/
+		 driver=new ChromeDriver();
+		
+		driver.get("http://www.newtours.demoaut.com");
+		
+		//1. xpath by linktext
+		driver.findElement(By.xpath("//a[text()='REGISTER']")).click();
+		
+		//2. xpath by tagname
+		driver.findElement(By.xpath("//input[@name='firstName']")).sendKeys("sowjanya");
+		
+		//3. xpath by using two attributes
+		driver.findElement(By.xpath("//input[@name='lastName'][@size='20']")).sendKeys("saragadam");
+		
+		//4. using//*
+		driver.findElement(By.xpath("//*[@name='phone']")).sendKeys("123456");
+		
+		//5.using or
+		driver.findElement(By.xpath("//*[(@name='userName') or (@id='userName')]")).sendKeys("bhavdeep@gmail.com");
+		driver.findElement(By.xpath("//*[@name='address1']")).sendKeys("34 willingston road");
+		driver.findElement(By.xpath("//*[@name='address2']")).sendKeys("germany");
+		
+		//6.using |
+		driver.findElement(By.xpath("((//*[@name='city']) | (//*[@size='15']))[2]")).sendKeys("toronto");
+		driver.findElement(By.xpath("//*[@name='state']")).sendKeys("ontario");
+		driver.findElement(By.xpath("//*[@name='postalCode']")).sendKeys("345363574");
+		
+		//using select box
+		WebElement e=driver.findElement(By.xpath("//*[@name='country']"));
+		Select s=new Select(e);
+		s.selectByVisibleText("CANADA");
+		
+		// 7. using starts-with
+		driver.findElement(By.xpath("//*[starts-with(@id,'email')]")).sendKeys("bhavdeep@gmail.com");
+		
+		// 8. using contains
+		driver.findElement(By.xpath("//*[contains(@name,'password')]")).sendKeys("1234");
+		driver.findElement(By.xpath("//*[contains(@name,'confirmPassword')]")).sendKeys("1234");
+		
+		driver.quit();
+		
+		
+		
+	}
+
+}
