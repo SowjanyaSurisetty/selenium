@@ -1,0 +1,38 @@
+package selprac;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class LoginGoogle {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+		System.setProperty("webdriver.chrome.driver", "C:\\Selenium\\chromedriver_win32\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		
+		driver.get("https://semantic-ui.com/modules/dropdown.html");
+		driver.getTitle();
+		driver.manage().window().maximize();
+		Thread.sleep(4000);
+		driver.findElement(By.xpath("//div[@data-type='module'][@data-element='dropdown']")).click();
+		Thread.sleep(3000);
+		WebDriverWait wait=new WebDriverWait(driver,20);
+		List<WebElement> li=wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(By.xpath("//div[@class='ui floating dropdown theme basic button active visible']/div/div")));
+		int Total=li.size();
+		System.out.println("Total size of list Items : "+Total);
+		
+		//printing all the items from the drop down list
+		
+		for(int i=0;i<Total;i++)
+		{
+			String result=li.get(i).getText();
+			System.out.println(result);
+		}
