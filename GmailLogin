@@ -1,0 +1,48 @@
+package selprac;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Gmail {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Selenium\\Drivers\\chromedriver_win32\\chromedriver.exe");
+		
+		ChromeDriver driver=new ChromeDriver();
+		
+		driver.get("https://www.gmail.com");
+		
+		WebDriverWait w=new WebDriverWait(driver,10);
+		
+		w.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//input[@type='email']")));
+		driver.manage().window().maximize(); 
+		
+		driver.findElement(By.xpath("//input[@type='email']")).sendKeys("sowjany@gmail.com");
+		
+		WebElement next=w.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[text()='Next']")));
+		
+		next.click();
+		
+		WebElement password=w.until(ExpectedConditions.visibilityOfElementLocated(By.name("password")));
+		
+		password.sendKeys("mypassword");
+		
+		WebElement next2=w.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[text()='Next']")));
+		
+		next2.click();
+		
+		WebElement img=w.until(ExpectedConditions.elementToBeClickable(By.xpath("//span[@class='gb_ya gbii']")));
+		
+		img.click();
+		
+		WebElement signout=w.until(ExpectedConditions.elementToBeClickable(By.xpath("//a[text()='Sign out']")));
+		
+		signout.click();
+
+	}
+
+}
